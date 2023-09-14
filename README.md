@@ -4,12 +4,10 @@ Poke Catch Game using Streamer.bot for YouTube
 
 ## **Description** 
 [wrap="info"]  
-This is a points system for YouTube. Viewers will be able to accumulate points by chatting regularly and then redeem their points to trigger actions you create in Streamer.Bot. **Updated for version 0.2.0**    
+This is a Pokemon Catch game for YouTube where viewers can try to catch wild pokemon that appear and fill out their Pokedex. It was designed primarily for YouTube, but could possibly work with Twitch if the Streamer.bot sub-actions and C# code is updated.   
 [/wrap]
 
-[wrap="warning"]
-Be aware that there is not a way to give points to lurkers as we don't have access to that through YouTube. Also, viewers will not get extra points for spamming chat.
-[/wrap]
+
 
 ## **Resources** 
 
@@ -20,13 +18,19 @@ Make sure your OBS has these two plugins. If you don’t, I have provided links 
 
 [Move Transition Plugin](https://obsproject.com/forum/resources/move-transition.913/)
 
-### Downloading Files
+Then import the OBS scene collection that matches YOUR base canvas resolution (1080p or 1440p)
+- 1080p
+- 1440p
+- Tools > Source Copy > Load Scene > Find the file and import into OBS
+
+### Downloading Other Files
 
 Download the Pokemon cries and Sugimori art from [veekun](https://veekun.com/dex/downloads) under "Other files"
 
 [PICTURE GOES HERE]
 
-Create a folder and unzip the folders you downloaded into the new folder. Take note of where those folders are.
+Create a folder and unzip the compressed folders you downloaded into the new folder. Take note of where those folders are.
+You may have to unzip using 7-zip first, and then extract it again after that. Not sure why, but that's how I got it to work
 
 In the `Sugimori art folder` make changes to the following images:
 - `201.png` > delete the file (it's broken)
@@ -38,7 +42,24 @@ Download this ZIP, unzip it, and put these folders in your new folder you create
 - Catch Chance
 - Sound Effects
 - Text Names
-- OBS Pokemon Scenes
+
+
+### Last Files
+Find a square image of a Pokeball and save it in the "sugimori" folder as `0.png`
+Update the image source on the [S0] Pokeball Scene to that `0.png` image location
+
+Optional - There is a "Success" image on the [S1] Catch That Pokemon scene that you can update to the Streamer.bot logo, or whatever you want
+
+
+## **Streamer.bot Pre-Import Setup**
+
+The following timers don't import to Streamer.bot so you will have to set them up:
+- Pokemon Run Timer
+a. Put the interval to 30-40 seconds
+b. Set to Disabled
+- Poke Catch Game Appear Timer
+a. I would recommend 150 seconds or more
+b. You can make it a random time amount with a specific range as well
 
 
 ## **Import Code** 
@@ -55,162 +76,193 @@ In Streamerbot select the Import button from the top left menu.
 Drag and drop the file or copy the text from the file and paste all the text into the Import String field.
 
 [wrap="info"]
-There should be 17 actions and 6 Commands.
+There should be 31 actions and 12 Commands.
 [/wrap]
 
 ![image](upload://yvzYxE4Lk8ptM7d2LOqFCuUqhnv.png)
 
 
-## **Configuration** 
+## **Configuration**
 
 
-### C# Compiler
-Make sure to add System.Core.dll to the C# compiler within Settings > C# Compiler > Common References > Right-Click > Add reference from file...
+### Assign Timer Triggers in Streamer.Bot
 
-![image](upload://aY0obJyjPCwRxClvKCoIMy5hFtU.png)
-![image](upload://ilUpTmBqdbXnjl1XzhfHyIhTY8l.png)
-
-This will help make sure all the C# code found in the sub-actions compiles.
-
-### Present Viewers
-![image](upload://g2mFzxYLCVtem0Zm20fWf4qiIm0.png)
+1. "3 (Timed Action) - Poke Catch Run Away Action" - add the timer trigger of “Pokemon Run Timer”
+2. "3 (Timed Action) - Pokemon Catch Appeared!"  - add the timer trigger of “Poke Catch Game Appear Timer”
 
 
-This will give viewers points every MINUTE. The slider is meant to select how many minutes of inactivity to no longer consider a chatter as "active". For example, 5 minutes means that if the Present Viewers event runs and the chatter hasn't been active for 5 mins 12 secs, then the chatter will no longer be receiving points every minute.
+### File Locations
 
-To adjust the points given every minute change the `%pointsPerMinute%` argument in the "Action - Present Viewers Trigger" action to the number value you want.
+You will need to update file locations on the action "1 (Pre-Requisite Action) - Set Global Poke File Paths" so they are pointed to the correct file locations on your PC.
 
-![image](upload://yLXvfmDUhUHYZbjljsfbjI6NP3.png)
+[wrap="warning"]
+MAKE SURE TO USE " \ " and not to copy the file location from Windows Explorer or it won’t work.
+[/wrap]
 
 
-### First Words
-In the action "Action - First Words":
-- Update/Add any users that you don't want triggering the "First Words" event.
-![image](upload://rhSnFrgpjvNIdNtS4LfHe6wD4Iu.png)
-- Update/Add any user IDs that you don't want triggering the "First Words" event.
-![image](upload://6FKnC6rLtXpicbmWiNF698sbz1m.png)
-- Update the points every chatter receives for chatting the first time each stream.
+1. `pokeTextNamesFolder` - The Text Names folder location
+2. `pokeCatchChanceFolder` - The Catch Chance folder location
+3. `pokePictureFolder` - The Pokemon Pictures folder location
+4. `pokeCriesFolder` - The Cries folder location
+5. `soundEffectsFolder` - The Sound Effects folder location
 
-![image](upload://ybZJWMgn8R6bWoBmo3dkaMUdwj7.png)
+Once you are done, right-click the "Test" trigger and test it. 
+
+If you hear the sound of a successful Pokeball catch and see the toast notification, then it worked! This will assign the paths to global variables so the rest of the actions can work.
+
+
+### Assign Timers in Sub-actions
+
+There isn’t a way to import Timers yet so we have to set these up by opening the TImer sub-action and selecting the timer
+
+1. `2 (Command) - Redeem Pokemon Encounter` - Timer (PokeCatch Game Appear Timer :: Disabled) - 9th line
+2. `2 (Command) - Redeem Specific Pokemon Encounter` - Timer (PokeCatch Game Appear Timer :: Disabled) - 9th line
+3. `3 (Timed Action) - Poke Catch Run Away Action` - Timer (Pokemon Run Timer :: Disabled) - 7th line
+4. `3 (Timed Action) - Pokemon Catch Appeared!` - Timer (PokeCatch Game Appear Timer :: Disabled) - 3rd line & Timer (Pokemon Run Timer :: Enabled) - last line
+5. `5 (Background Action) - Poke Catch Action` - Timer (Pokemon Run Timer :: Disabled) - 3rd line
+6. `5 (Background Action) - Poke Catch Fail Action` - Timer (Pokemon Run Timer :: Enabled) - 1st line
+7. `5 (Background Action) - Poke Reset PokeMaster & Pokeparty` - Timer (PokeCatch Game Appear Timer :: Enabled) - 4th line
+8. `5 (Background Action) - Pokemon Catch Appeared! (Redeem)` - Timer (Pokemon Run Timer :: Enabled) - last line
+9. `5 (Background Action) - Specific Pokemon Catch Appeared!` - Timer (Pokemon Run Timer :: Enabled) - last line
+
+Optional - You can create 2 new actions that start and stop the `PokeCatch Game Appear Timer`.
+
+
+
+
+### Pokedex Setup
+
+By default, only a message will be sent in chat with the pokedex completion number and % complete. There are two additional optional ways for viewers to see their pokedex
+
+1. Discord Webhook - You can have the screenshot sent to a discord channel by setting up the webhook address in the “Show Pokedex Gen #” actions and enabling the sub-action
+
+(Only update the webhook name and the webhook address. Leave the majority of the content and image as is)
+
+2. Pokedex scene appearing in OBS - You can have the images of the caught pokemon show up on screen by enabling the two OBS Source Visibility sub-actions in each “Show Pokedex Gen #” action
+
+
+### OBS Audio Note
+
+[wrap="warning"]
+By default the sound of the pokemon cry is set to play in OBS through your Monitor ONLY, no output. Depending on your sound settings in OBS you may want to update this if you like.
+[/wrap]
+
+
+
+### Gen 1-3 Settings
+By default it has Pokemon randomly appear from Gens 1-3 (#’s 1-386) but you can change it so that it selects a smaller range by changing the
+ “Random Number between…” sub-action on the “Pokemon Catch Appeared” action
+
+PICTURE
+
+ And the “set argument %minimum%” and “set argument %maximum%” sub-actions on the “Specific Pokemon Catch Appeared!” action
+
+
+PICTURE
+
+
+### Difficulty Settings
+If you feel that pokemon are TOO EASY to catch or TOO DIFFICULT you can go into the code and change the number.
+On the “Poke Catch Action” go to the “Execute Code (Determines if Pokemon was Caught) sub-action and double-click
+
+PICTURE
+
+
+Find the number “150” in the code and change it lower if you want it to become easier, or higher if you want it to be more difficult to catch the pokemon
+
+
+PICTURE
+
+After updating the number, then hit “Compile” and make sure it compiled successfully.
+Then hit “Save and Compile”
+
+
+
 
 
 ## **Commands**
 
+### !catch & !catch2
+These are the commands that can be used when:
+1. A wild pokemon appears (anyone can use it)
+2. A user redeems `!catchpokemon` or `!catchmypokemon`
 
-### Points Name and Command
-The !setpointsname command sets the name of your loyalty points to whatever you want to call it. This is the format: 
+If a user redeemed the command, then Streamer.bot will only let the redeemr use the `!catch` or `!catch2` commands.
 
-```!setpointsname[space]["name"]```
-
-```!setpointsname Coins```
-
-In the !setpointsname command:
-- Check the "enabled" box
-- This command is only be for you because you will need to update the command for users to check their points balance if you ever change the name.
-![image](upload://bHNExHksCn7lQPzwNORrRu32JFp.png)
-
-- Use the command during a stream to update the name to whatever you choose.
-![image](upload://5p9lJ0Nbo6f0tUSmqvuVh6zxBxv.png)
-
-In the !points command:
-- Check the "enabled" box
-- Update the command to whatever points name you are using (if desired)
-- You can also add a cooldown if you want to avoid people spamming the command
-![image](upload://pg5VPstd8XN0TQTzhJYQuFKO72K.png)
-![image](upload://xiZHHhRAHbJOD9hUBbOVaEiAdP1.png)
+There is an option to use `!catch2` because sometimes YouTube doesn't let the `!catch` command through. If users report their `!catch` command isn't working and you don't see any message of it, then recommend that they use `!catch2`
 
 
+### !catchpokemon
+example - `!catchpokemon`
 
-### Add and Set Points Commands
-The !addpoints command adds points to the viewer listed. This is the format: 
+This command is a redeem where a user can spend points to have their OWN chance at catching a random pokemon using `!catch` or `!catch2`
+- If the random pokemon has already be caught by the user, then it will reset and refund their points.
 
-```[command][space][username]+[# of points to add]```
 
-``` !addpoints Haunter+100```
+### !catchmypokemon #
 
-You can also use the @ symbol if you are on desktop
+This command is a redeem where a user can spend points to have their OWN chance at catching a SPECIFIC pokemon using a number after `!catchmypokemon`
 
-``` !addpoints @Haunter+100```
+example - `!catchmypokemon 1` would make Bulbasaur appear.
 
-In the !addpoints command:
-- Check the "enabled" box
-- Update the command to whatever points name you are using (if desired)
-- Update the Group Permissions to "Moderators"
+By defauly the number will work from 1 through 386
 
-![image](upload://aAN6eiY1FpgQI34Cgh4EBszrV2r.png)
-![image](upload://axXvvS0OiqSeAo5sN49GHcXTiiS.png)
+Users will not be able to catch a specific pokemon they have already caught.
 
-The !setpoints command adds points to the viewer listed. This is the format: 
 
-```[command][space][username]=[# of points to set]```
 
-``` !setpoints Haunter=100```
+### !pokedex, !pokedex2, & !pokedex3
 
-You can also use the @ symbol if you are on desktop
+These commands will retrieve the user's Pokedex count and % completion of Gen1, Gen2, & Gen3 respectively
 
-``` !setpoints @Haunter=100```
+Gen1:
+`!pokedex`
+`!pokédex`
+`!pokedex1`
+`!pokédex1`
+Gen2:
+`!pokedex2`
+`!pokédex2`
+Gen3:
+`!pokedex3`
+`!pokédex3`
 
-In the !setpoints command:
-- Check the "enabled" box
-- Update the command to whatever points name you are using (if desired)
-- Update the Group Permissions to "Moderators"
+Please see the Pokedex Setup in the Configuration section above for more options.
 
-![image](upload://aktpI6LppgBNX3ti12sIbdPkvKC.png)
-![image](upload://qIAJnt1BgzAQK0uRNVk9d5oH6Sf.png)
+
+
+### !pokeparty
+
+This command will show a user's 6-slot pokemon party on screen
+example:
+`!pokeparty`
+`!poképarty`
+
+In order to set pokemon they have caught, the users will need to use the "!slot#" command
+
+
+### !slot1-6
+Once a user has caught a Pokemon, they can assign it to one of their 6 slots in their Pokemon party:
+`!slot1 [pokedex #]`
+`!slot2 [pokedex #]`
+`!slot3 [pokedex #]`
+`!slot4 [pokedex #]`
+`!slot5 [pokedex #]`
+`!slot6 [pokedex #]`
+example - If a user wants to assign Mewtwo to slot 4 in their Pokemon party they would type:
+`!slot4 150`
+if instead they wanted to assign it to slot 2:
+`!slot2 150`
 
 [wrap="warning"]
-PLEASE NOTE! - Due to the fact that YouTube does not require unique usernames, there is a small chance that two viewers with the same username are in your viewer records. If this happens the bot should send a message that there are duplicate usernames. They will have to change their username or get their points added another way.
+Remember that they can only assign a Pokemon if they have caught it.
+
+Also, If the pokemon is already assigned to a slot, they will need to assign a different pokemon first before they move it to a new slot
+
 [/wrap]
 
-![image](upload://csAq17TLJZQS8ExQxZENsnV2Cgc.png)
-
-[wrap="warning"]
-Also, if you are trying to add/set points for a brand new user, you may have to click "Save" in Streamer.Bot if it says they don't exist yet.
 
 
-![image](upload://kAm9JmdUSMQzcHiIjDyM5PyL2Le.png)
-[/wrap]
-
-### Shout-Out
-The !so command puts a link in chat for the user who was shouted-out. This is the format: 
-
-```!so [username]```
-
-```!so Haunter```
-
-In the !so command:
-- Check the "enabled" box
-- Update the Group Permissions to "Moderators"
-
-![image](upload://pqwgZkPekaxQo36YoVHeg6efoG3.png)
-![image](upload://zyVxzcCfdgVg1CD4igI8OtYl3oQ.png)
-
-## Points Redeem
-For each points redemption command you create do the following:
-- Duplicate the action "Command - Sample Redeem Something YT (duplicate this)"
-- Rename the action to whatever you like
-![image](upload://nFlMz2CN9vBpGQ2T9I1N2WLLiOV.png)
-
-- Update [this is your redeem name] in the "Set argument %redeemName%..." sub-action
-
-![image](upload://i5b3wKj7Z6HDNUThyew4cSrEmeU.png)
-
-- Add sub-action/s to the action
-
-![image](upload://6MDElpL3vD44s2riwjdLWqEVZK7.png)
-
-- Create a command for the new action and link the new action to the new command
-- You can add the command trigger first by righ-click > Core > Commands > Command Triggered.
-
-![image](upload://xQeH1bfK0BeDUBhr9CgjXRoKOl5.png)
-
-- You can create the command in the dialog box if needed:
-
-![image](upload://pQdooiMhe4NVxODMEryvzrKY2XM.png)
-
-- It will take you to the command window for configuration
-
-![image](upload://l2eCDXwGUb7tEqHpDonO8HnK57M.png)
 
 
 
