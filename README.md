@@ -55,11 +55,14 @@ Optional - There is a "Success" image on the [S1] Catch That Pokemon scene that 
 
 The following timers don't import to Streamer.bot so you will have to set them up:
 - Pokemon Run Timer
-a. Put the interval to 30-40 seconds
-b. Set to Disabled
+  
+    a. Put the interval to 30-40 seconds
+    b. Set to Disabled
+
 - Poke Catch Game Appear Timer
-a. I would recommend 150 seconds or more
-b. You can make it a random time amount with a specific range as well
+  
+    a. I would recommend 150 seconds or more
+    b. You can make it a random time amount with a specific range as well
 
 
 ## **Import Code** 
@@ -256,11 +259,35 @@ Also, If the pokemon is already assigned to a slot, they will need to assign a d
 [/wrap]
 
 
+## **Manual Actions**
+If needed there are two actions you can use to update slots or the Pokedex
+
+### Manually Assign Caught Pokemon
+By "testing" the trigger in this action, you can set a Pokemon as "caught" for a user.
+- Make sure to have their User ID ready
+- Make sure you know what Pokedex ID you want to use
+
+Then enter the details in the input windows.
+
+Their pokedex will update the next time they catch a Pokemon, but they will be able to assign it to their party.
+
+
+### Transfer PokeSlot Numbers to New Slots and Pokedex
+This is available for anyone who used the old system and will update everything from the old system's record.
+To update the Pokedex records, "test" the trigger in this action.
+
+It will NOT update the old system record, so use it only once, and only use it before implementing the new system LIVE
+
+
 
 
 
 
 ## Contributors
 
-Inspired by the original points system for Twitch by [VRFlad](https://www.twitch.tv/VRFlad)
-Made for YouTube by  [Haunter](https://www.youtube.com/channel/UC9qO6-NFvWwhde5o2B_DMzQ)
+Idea for the game from [Shane Alan Gower](https://www.youtube.com/@ShaneAlanGower)
+
+Created and Designed by  [Haunter](https://www.youtube.com/channel/UC9qO6-NFvWwhde5o2B_DMzQ) 👻
+
+Downloads from [veekun](https://veekun.com/dex/downloads)
+
