@@ -115,17 +115,11 @@ If you hear the sound of a successful Pokeball catch and see the toast notificat
 
 There isn’t a way to import Timers yet so we have to set these up by opening the TImer sub-action and selecting the timer
 
-1. `2 (Command) - Redeem Pokemon Encounter` - Timer (Poke Catch Game Appear Timer :: Disabled) - 9th line
-2. `2 (Command) - Redeem Specific Pokemon Encounter` - Timer (Poke Catch Game Appear Timer :: Disabled) - 9th line
-3. `3 (Timed Action) - Poke Catch Run Away Action` - Timer (Pokemon Run Timer :: Disabled) - 7th line
-4. `3 (Timed Action) - Pokemon Catch Appeared!` - Timer (Poke Catch Game Appear Timer :: Disabled) - 3rd line & Timer (Pokemon Run Timer :: Enabled) - last line
-5. `5 (Background Action) - Poke Catch Action` - Timer (Pokemon Run Timer :: Disabled) - 3rd line
-6. `5 (Background Action) - Poke Catch Fail Action` - Timer (Pokemon Run Timer :: Enabled) - 1st line
-7. `5 (Background Action) - Poke Reset PokeMaster & Pokeparty` - Timer (Poke Catch Game Appear Timer :: Enabled) - 4th line
-8. `5 (Background Action) - Pokemon Catch Appeared! (Redeem)` - Timer (Pokemon Run Timer :: Enabled) - last line
-9. `5 (Background Action) - Specific Pokemon Catch Appeared!` - Timer (Pokemon Run Timer :: Enabled) - last line
 
-Optional - You can create 2 new actions that start and stop the `PokeCatch Game Appear Timer`.
+1. `5 (Background Timer State) Disable Poke Catch Game Appear Timer` - Timer (Poke Catch Game Appear Timer :: Disabled)
+2. `5 (Background Timer State) Disable Pokemon Run Timer` - Timer (Pokemon Run Timer :: Disabled)
+3. `5 (Background Timer State) Enable Poke Catch Game Appear Timer` - Timer (Poke Catch Game Appear Timer :: Enabled)
+4. `5 (Background Timer State) Enable Pokemon Run Timer` - Timer (Poke Catch Game Appear Timer :: Disabled)
 
 
 
