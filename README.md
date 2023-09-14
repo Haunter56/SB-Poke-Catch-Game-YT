@@ -34,7 +34,7 @@ In the `Sugimori art folder` make changes to the following images:
 - `386.png` > delete the file (it's broken)
 - `386-[style of your choice]` > change the style you want to appear to `386.png`
 
-Download this ZIP, unzip it, and put the folders in your folder you created as well:
+Download this ZIP, unzip it, and put these folders in your new folder you created as well:
 - Catch Chance
 - Sound Effects
 - Text Names
