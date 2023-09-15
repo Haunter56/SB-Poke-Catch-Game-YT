@@ -55,13 +55,17 @@ Optional - There is a "Success" image on the [S1] Catch That Pokemon scene that 
 
 The following timers don't import to Streamer.bot so you will have to set them up:
 - Pokemon Run Timer
-  
+
+ 
     a. Put the interval to 30-40 seconds
+  
     b. Set to Disabled
 
 - Poke Catch Game Appear Timer
+
   
     a. I would recommend 150 seconds or more
+  
     b. You can make it a random time amount with a specific range as well
 
 
