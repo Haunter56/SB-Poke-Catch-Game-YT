@@ -30,7 +30,7 @@ Then import the OBS scene collection that matches YOUR base canvas resolution (1
 - Tools > Source Copy > Load Scene > Find the file and import into OBS
 
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/eb7c2c9d-8928-416a-91b4-294ba03ee516)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/52449810-22b0-43aa-a75e-d2a5610c449f)
 
 
 
@@ -41,7 +41,8 @@ If for some reason your OBS filter and move actions don't work you may need to g
 
 
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/a09bdde3-f0a0-4c79-a60b-3337378640bb)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/a25d4f5b-f746-419e-8802-21dd06f3823b)
+
 
 
 
@@ -53,7 +54,8 @@ Download the Pokemon cries and Sugimori art from [veekun](https://veekun.com/dex
 
 
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/bda3f631-c322-4ec9-85a2-71099dd1865e)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/29047e5c-7bee-4316-b368-679c4c4f42ed)
+
 
 
 
@@ -81,7 +83,7 @@ Download [this ZIP](https://drive.google.com/file/d/1bPwf9X3UyhVe2cGsJUCgp-cS6XT
 You should now have these folders in a location you can reference later:
 
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/1e863799-507a-4032-a1b2-a799220b2a50)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/7cab56b4-1db8-4ff5-9917-812edce28341)
 
 
 
@@ -91,7 +93,7 @@ Find a square image of a Pokeball [like this](https://static.wikia.nocookie.net/
 Update the image source on the [S0] Pokeball Scene to that `0.png` image location
 
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/a9afadc6-9b48-43ca-9d55-78155e4c1749)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/e48b7884-9972-461c-a4d5-29ae4b39d429)
 
 
 
@@ -106,7 +108,8 @@ The following timers don't import to Streamer.bot so you will have to set them u
 
 - Pokemon Run Timer
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/18cecbb7-e775-47a2-bd69-9ef6bda427d4)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/062ac3c0-075d-452f-abdd-636e4e7dd0a2)
+
 
 
  
@@ -117,7 +120,8 @@ The following timers don't import to Streamer.bot so you will have to set them u
 - Poke Catch Game Appear Timer
 
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/24788b09-6d02-4791-958e-a5a8652d654c)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/bd7cbf9e-0684-479a-862a-154463d75a1d)
+
 
 
   
@@ -146,7 +150,8 @@ There should be 37 actions and 13 Commands.
 
 
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/5f44bd65-7825-4dd6-8410-a3f4e2bf24c0)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/e0fb11d3-5336-44c5-b625-3438e7f0d2c6)
+
 
 
 
@@ -160,14 +165,16 @@ There should be 37 actions and 13 Commands.
 1. `3 (Timed Action) - Poke Catch Run Away Action` - add the timer trigger of “Pokemon Run Timer”
 (example of where to find the trigger)
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/9329421b-6682-4cba-abbe-92e24bcf1fe4)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/930ff6de-d1f0-4c6a-8a18-f68e1f2e0ffe)
+
 
 
 
 2. `3 (Timed Action) - Pokemon Catch Appeared!`  - add the timer trigger of “Poke Catch Game Appear Timer”
 (example of what this trigger will look like. The other will be similar with the appropriate name)
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/7b007754-8185-485c-a586-e2873e8fb3c7)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/07d53cc3-7212-4d8d-a40c-17c43ab53129)
+
 
 
 
@@ -188,7 +195,8 @@ MAKE SURE TO USE " \ " and not to copy the file location from Windows Explorer o
 5. `soundEffectsFolder` - The Sound Effects folder location
 
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/76927c2e-3d9f-444f-847c-04c5678aeed3)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/401a97fc-ddd8-463d-b614-323b68983994)
+
 
 
 
@@ -196,7 +204,8 @@ MAKE SURE TO USE " \ " and not to copy the file location from Windows Explorer o
 Once you are done, right-click the `Test` trigger and test it. 
 
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/32a45b0d-1d88-4610-83d7-ddac4b1500ee)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/8ef9b734-92d0-45d8-b0ed-bb502128f290)
+
 
 
 
@@ -217,7 +226,8 @@ There isn’t a way to import Timers yet so we have to set these up by opening t
 
 (double-click and select the correct timer for each)
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/b9e23146-7f2e-4517-8523-a711eb29ff04)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/1587e522-554c-4696-ba45-c26b7433f4d8)
+
 
 
 
@@ -230,7 +240,8 @@ By default, only a message will be sent in chat with the pokedex completion numb
 1. Discord Webhook - You can have the screenshot sent to a discord channel by setting up the webhook address in the “Show Pokedex Gen #” actions and enabling the sub-action
 
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/ec9e7e58-eaa5-4aef-90b4-6124eebaa538)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/8e274f33-09be-4be8-8ef8-e5e7d332c9e6)
+
 
 
 
@@ -256,7 +267,8 @@ By default the sound of the pokemon cry is set to play in OBS through your Monit
 By default it has Pokemon randomly appear from Gens 1-3 (#’s 1-386) but you can change it so that it selects a smaller range by changing the `Random Number between…` sub-action on the `3 (Timed Action) - Pokemon Catch Appeared!` & `5 (Background Action) - Pokemon Catch Appeared! (Redeem)` actions.
 
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/a3e61f95-2440-4fb4-ad3f-92efcf67d3f5)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/251ece94-6f8a-4da3-8a48-c3545b7a7626)
+
 
 
 
@@ -264,7 +276,8 @@ By default it has Pokemon randomly appear from Gens 1-3 (#’s 1-386) but you ca
 And the `Set argument %minimum%` and `Set argument %maximum%` and `Set argument minimum` sub-actions on the `5 (Background Action) - Check Pokemon Range Limit` action.
 
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/372c8998-adb6-4cfc-988b-93714568f41b)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/7915d081-cf6c-4634-a77c-268e2075a508)
+
 
 
 
@@ -275,14 +288,16 @@ If you feel that pokemon are TOO EASY to catch or TOO DIFFICULT you can go into 
 On the `5 (Background Action) - Poke Catch Action` go to the “Execute Code (Determines if Pokemon was Caught) sub-action and double-click
 
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/dd134a58-9e15-46e7-b2aa-c0b25f9b63e3)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/c8d1b31d-a0eb-457c-8cf0-665575a1d9cb)
+
 
 
 
 
 Find the number “160” in the code and change it lower if you want it to become easier, or higher if you want it to be more difficult to catch the pokemon
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/b4998ea8-9bf9-4995-a6eb-c6160ba8f6b0)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/914d9905-6e68-4591-be82-691438f8f30b)
+
 
 
 
@@ -349,7 +364,8 @@ Please see the Pokedex Setup in the Configuration section above for more options
 
 This command will show a user's 6-slot pokemon party on screen
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/b8b7076d-9411-4a7f-aa90-f2da0337be4a)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/4a467e87-fe58-4a27-bdbd-e13fc14dd295)
+
 
 
 
@@ -389,13 +405,15 @@ If needed there are two actions you can use to update slots or the Pokedex
 By "testing" the trigger in this action, you can set a Pokemon as "caught" for a user.
 - Make sure to have their User ID ready
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/2df34f11-10b0-4363-afc4-7f8ce75699c6)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/420384f7-e6b5-47ef-bd7c-62fe277b185d)
+
 
 
 
 - Make sure you know what Pokedex ID you want to use
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/aa5a2cbb-b7d7-4786-9906-e5a0b7db9b2c)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/9bb77388-402f-495f-92ce-0ef40b767885)
+
 
 
 
@@ -408,11 +426,13 @@ Their pokedex will update the next time they catch a Pokemon, but they will be a
 Make sure to add System.Core.dll to the C# compiler within Settings > C# Compiler > Common References > Right-Click > Add reference from file...
 
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/2d038b77-635d-49f6-b51b-3e199ae1945e)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/3ed0806c-8e84-4525-8426-a0279e8d8575)
 
 
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/f26339ab-c28c-45e2-aa52-62e3c65b7b62)
+
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/f55150d0-ae04-4682-9c7e-7f08350e4161)
+
 
 
 
@@ -423,7 +443,8 @@ This will help make sure all the C# code found in the sub-actions compiles.
 This is available for anyone who used the old system and will update everything from the old system's record.
 To update the Pokedex records, "test" the trigger in this action.
 
-![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/e654d5fe-88f7-4cb9-8dc9-4c9a8f032e54)
+![image](https://github.com/Haunter56/SB-Poke-Catch-Game-YT/assets/107263697/1a3009ec-e272-41de-be71-4a89ca0a21ca)
+
 
 
 
